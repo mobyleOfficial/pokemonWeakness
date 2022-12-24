@@ -1,0 +1,7 @@
+name: domain
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dependencies:
+  meta: ^1.8.0
