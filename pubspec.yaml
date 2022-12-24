@@ -23,14 +23,14 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter_icons:
+  image_path: "assets/icons/normal.png"
+
   android: "ic_launcher"
-  image_path_android: "assets/icons/android/normal.png"
   adaptive_icon_background: "#A0A29F"
-  adaptive_icon_foreground: "assets/icons/android/normal.png"
+  adaptive_icon_foreground: "assets/icons/normal.png"
 
   ios: "Icon-App"
   remove_alpha_ios: true
-  image_path_ios: "assets/icons/ios/normal.png"
 
 flutter:
   uses-material-design: true
