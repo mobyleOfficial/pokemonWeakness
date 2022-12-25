@@ -2,5 +2,77 @@
   "appTitle": "pokemon_weakness",
   "@appTitle": {
     "description": "The title of the application"
+  },
+  "bugName": "Bug",
+  "@bugName": {
+    "description": "The name of the bug type"
+  },
+  "darkName": "Dark",
+  "@darkName": {
+    "description": "The name of the dark type"
+  },
+  "dragonName": "Dragon",
+  "@dragonName": {
+    "description": "The name of the dragon type"
+  },
+  "electricName": "Electric",
+  "@electricName": {
+    "description": "The name of the electric type"
+  },
+  "fireName": "Fire",
+  "@fireName": {
+    "description": "The name of the fire type"
+  },
+  "fairyName": "Fairy",
+  "@fairyName": {
+    "description": "The name of the fairy type"
+  },
+  "fightingName": "Fighting",
+  "@fightingName": {
+    "description": "The name of the fighting type"
+  },
+  "flyingName": "Flying",
+  "@flyingName": {
+    "description": "The name of the flying type"
+  },
+  "ghostName": "Ghost",
+  "@ghostName": {
+    "description": "The name of the ghost type"
+  },
+  "grassName": "Grass",
+  "@grassName": {
+    "description": "The name of the grass type"
+  },
+  "groundName": "Ground",
+  "@groundName": {
+    "description": "The name of the ground type"
+  },
+  "iceName": "Ice",
+  "@iceName": {
+    "description": "The name of the ice type"
+  },
+  "normalName": "Normal",
+  "@normalName": {
+    "description": "The name of the normal type"
+  },
+  "poisonName": "Poison",
+  "@poisonName": {
+    "description": "The name of the poison type"
+  },
+  "psychicName": "Psychic",
+  "@psychicName": {
+    "description": "The name of the psychic type"
+  },
+  "rockName": "Rock",
+  "@rockName": {
+    "description": "The name of the rock type"
+  },
+  "steelName": "Steel",
+  "@steelName": {
+    "description": "The name of the steel type"
+  },
+  "waterName": "Water",
+  "@waterName": {
+    "description": "The name of the water type"
   }
 }

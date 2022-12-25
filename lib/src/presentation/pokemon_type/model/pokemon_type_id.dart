@@ -1,0 +1,21 @@
+enum PokemonTypeId {
+  bug,
+  dark,
+  dragon,
+  electric,
+  fire,
+  fairy,
+  fighting,
+  flying,
+  ghost,
+  grass,
+  ground,
+  ice,
+  normal,
+  poison,
+  psychic,
+  rock,
+  steel,
+  water,
+  unknown
+}
