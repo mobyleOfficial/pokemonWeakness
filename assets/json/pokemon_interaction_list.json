@@ -1,0 +1,514 @@
+{
+  "defensive": [
+    {
+      "id": "bug",
+      "weakness": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "flying"
+        },
+        {
+          "id": "rock"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "grass"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "ground"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "dark",
+      "weakness": [
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "bug"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "ghost"
+        },
+        {
+          "id": "dark"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "psychic"
+        }
+      ]
+    },
+    {
+      "id": "dragon",
+      "weakness": [
+        {
+          "id": "ice"
+        },
+        {
+          "id": "dragon"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "water"
+        },
+        {
+          "id": "electric"
+        },
+        {
+          "id": "grass"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "electric",
+      "weakness": [
+        {
+          "id": "ground"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "electric"
+        },
+        {
+          "id": "flying"
+        },
+        {
+          "id": "steel"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "fire",
+      "weakness": [
+        {
+          "id": "water"
+        },
+        {
+          "id": "ground"
+        },
+        {
+          "id": "rock"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "grass"
+        },
+        {
+          "id": "ice"
+        },
+        {
+          "id": "bug"
+        },
+        {
+          "id": "steel"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "fairy",
+      "weakness": [
+        {
+          "id": "poison"
+        },
+        {
+          "id": "steel"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "bug"
+        },
+        {
+          "id": "dark"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "dragon"
+        }
+      ]
+    },
+    {
+      "id": "fighting",
+      "weakness": [
+        {
+          "id": "flying"
+        },
+        {
+          "id": "psychic"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "bug"
+        },
+        {
+          "id": "rock"
+        },
+        {
+          "id": "dark"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "flying",
+      "weakness": [
+        {
+          "id": "electric"
+        },
+        {
+          "id": "ice"
+        },
+        {
+          "id": "rock"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "grass"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "bug"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "ground"
+        }
+      ]
+    },
+    {
+      "id": "ghost",
+      "weakness": [
+        {
+          "id": "ghost"
+        },
+        {
+          "id": "dark"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "poison"
+        },
+        {
+          "id": "bug"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "normal"
+        },
+        {
+          "id": "fighting"
+        }
+      ]
+    },
+    {
+      "id": "grass",
+      "weakness": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "ice"
+        },
+        {
+          "id": "poison"
+        },
+        {
+          "id": "flying"
+        },
+        {
+          "id": "bug"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "water"
+        },
+        {
+          "id": "electric"
+        },
+        {
+          "id": "grass"
+        },
+        {
+          "id": "ground"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "ground",
+      "weakness": [
+        {
+          "id": "water"
+        },
+        {
+          "id": "grass"
+        },
+        {
+          "id": "ice"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "poison"
+        },
+        {
+          "id": "rock"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "electric"
+        }
+      ]
+    },
+    {
+      "id": "ice",
+      "weakness": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "rock"
+        },
+        {
+          "id": "steel"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "ice"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "normal",
+      "weakness": [
+        {
+          "id": "fighting"
+        }
+      ],
+      "resistance": [],
+      "ineffectiveness": [
+        {
+          "id": "ghost"
+        }
+      ]
+    },
+    {
+      "id": "poison",
+      "weakness": [
+        {
+          "id": "ground"
+        },
+        {
+          "id": "psychic"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "grass"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "poison"
+        },
+        {
+          "id": "bug"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "psychic",
+      "weakness": [
+        {
+          "id": "bug"
+        },
+        {
+          "id": "ghost"
+        },
+        {
+          "id": "dark"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "psychic"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "rock",
+      "weakness": [
+        {
+          "id": "water"
+        },
+        {
+          "id": "grass"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "ground"
+        },
+        {
+          "id": "steel"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "normal"
+        },
+        {
+          "id": "fire"
+        },
+        {
+          "id": "poison"
+        },
+        {
+          "id": "flying"
+        }
+      ],
+      "ineffectiveness": []
+    },
+    {
+      "id": "steel",
+      "weakness": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "fighting"
+        },
+        {
+          "id": "ground"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "normal"
+        },
+        {
+          "id": "grass"
+        },
+        {
+          "id": "ice"
+        },
+        {
+          "id": "flying"
+        },
+        {
+          "id": "psychic"
+        },
+        {
+          "id": "bug"
+        },
+        {
+          "id": "rock"
+        },
+        {
+          "id": "dragon"
+        },
+        {
+          "id": "steel"
+        },
+        {
+          "id": "fairy"
+        }
+      ],
+      "ineffectiveness": [
+        {
+          "id": "poison"
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "weakness": [
+        {
+          "id": "electric"
+        },
+        {
+          "id": "grass"
+        }
+      ],
+      "resistance": [
+        {
+          "id": "fire"
+        },
+        {
+          "id": "water"
+        },
+        {
+          "id": "ice"
+        },
+        {
+          "id": "steel"
+        }
+      ],
+      "ineffectiveness": []
+    }
+  ]
+}
