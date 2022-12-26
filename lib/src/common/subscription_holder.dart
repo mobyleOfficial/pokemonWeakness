@@ -6,4 +6,6 @@ mixin SubscriptionHolder {
   void disposeAll() {
     subscription.dispose();
   }
+
+  void dispose();
 }
