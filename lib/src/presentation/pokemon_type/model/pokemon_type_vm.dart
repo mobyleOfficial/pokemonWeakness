@@ -6,6 +6,7 @@ class PokemonTypeVM {
   const PokemonTypeVM({
     required this.id,
     required this.color,
+    required this.iconPath,
     this.weaknessList = const [],
     this.resistanceList = const [],
     this.ineffectivenessList = const [],
@@ -13,6 +14,7 @@ class PokemonTypeVM {
 
   final PokemonTypeId id;
   final Color color;
+  final String iconPath;
   final List<PokemonTypeId> weaknessList;
   final List<PokemonTypeId> resistanceList;
   final List<PokemonTypeId> ineffectivenessList;
