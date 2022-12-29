@@ -17,6 +17,7 @@ dependencies:
   domain:
     path: ./domain
 
+  cupertino_icons: ^1.0.5
   json_annotation: ^4.7.0
   json_serializable: ^6.5.4
   logger: ^1.1.0

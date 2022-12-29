@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_scaffold.dart';
 
 import 'settings_controller.dart';
 
@@ -15,10 +16,8 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
+    return AdaptiveScaffold(
+      title: 'Settings',
       body: Padding(
         padding: const EdgeInsets.all(16),
         // Glue the SettingsController to the theme selection DropdownButton.

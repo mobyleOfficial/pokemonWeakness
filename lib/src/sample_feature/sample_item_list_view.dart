@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_app_bar_action.dart';
+import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_scaffold.dart';
+import 'package:pokemon_weakness/src/presentation/common/route_name_builder.dart';
 
 import '../settings/settings_view.dart';
 import 'sample_item.dart';
-import 'sample_item_details_view.dart';
 
 /// Displays a list of SampleItems.
 class SampleItemListView extends StatelessWidget {
@@ -17,20 +20,16 @@ class SampleItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sample Items'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Navigate to the settings page. If the user leaves and returns
-              // to the app after it has been killed while running in the
-              // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
-            },
-          ),
-        ],
+    return AdaptiveScaffold(
+      title: 'Sample Items',
+      action: AdaptiveAppBarAction(
+        child: const Icon(Icons.settings),
+        onPressed: () {
+          // Navigate to the settings page. If the user leaves and returns
+          // to the app after it has been killed while running in the
+          // background, the navigation stack is restored.
+          Navigator.restorablePushNamed(context, SettingsView.routeName);
+        },
       ),
 
       // To work with lists that may contain a large number of items, it’s best
@@ -52,7 +51,7 @@ class SampleItemListView extends StatelessWidget {
             title: Text('SampleItem ${item.id}'),
             leading: const CircleAvatar(
               // Display the Flutter Logo image asset.
-              foregroundImage: AssetImage('assets/images/flutter_logo.png'),
+              foregroundImage: AssetImage('assets/images/bug.png'),
             ),
             onTap: () {
               // Navigate to the details page. If the user leaves and returns to
@@ -60,9 +59,9 @@ class SampleItemListView extends StatelessWidget {
               // background, the navigation stack is restored.
               Navigator.restorablePushNamed(
                 context,
-                SampleItemDetailsView.routeName,
+                RouteNameBuilder.pokemonTypeScreen,
               );
-            }
+            },
           );
         },
       ),
