@@ -21,4 +21,17 @@ class PokemonColors {
   static const carolinaBlue = Color(0xFF539DDF);
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const transparent = Color(0X00000000);
+  static const mayGreen = Color(0xFF388E3C);
+  static const persianRed = Color(0xFFD32F2F);
+  static const arsenic = Color(0xFF424242);
+}
+
+enum PokemonOpacity {
+  transparent(0),
+  translucent(127),
+  opaque(255);
+
+  const PokemonOpacity(this.value);
+  final int value;
 }

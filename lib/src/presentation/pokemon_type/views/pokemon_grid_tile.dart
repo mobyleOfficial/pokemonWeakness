@@ -13,9 +13,9 @@ class PokemonGridTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(
-          color: model.color,
+          color: model.color.withAlpha(model.opacity.value),
           border: Border.all(
-            color: Colors.transparent,
+            color: model.borderColor,
             width: 4,
           ),
           borderRadius: const BorderRadius.all(

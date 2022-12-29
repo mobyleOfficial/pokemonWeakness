@@ -7,15 +7,19 @@ import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_typ
 import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_type_vm.dart';
 
 extension PokemonTypeVMMapper on List<PokemonType> {
-  List<PokemonTypeVM> toVM() => map(
-        (type) => type.toVM(),
+  List<PokemonTypeVM> toVM(PokemonType selected) => map(
+        (type) => type.toVM(selected),
       ).toList();
 }
 
 extension on PokemonType {
-  PokemonTypeVM toVM() => PokemonTypeVM(
+  PokemonTypeVM toVM(PokemonType selected) => PokemonTypeVM(
         id: vmId,
         color: pokemonColor,
+        borderColor: getPokemonBorderColor(selected),
+        opacity: name == selected.name
+            ? PokemonOpacity.opaque
+            : PokemonOpacity.translucent,
         iconPath: pokemonIconPath,
         ineffectivenessList: ineffectivenessList.idList,
         weaknessList: weaknessList.idList,
@@ -63,6 +67,17 @@ extension on PokemonType {
       default:
         return PokemonColors.white;
     }
+  }
+
+  Color getPokemonBorderColor(PokemonType selected) {
+    if (selected.weaknessList.contains(name)) {
+      return PokemonColors.mayGreen;
+    } else if (selected.resistanceList.contains(name)) {
+      return PokemonColors.persianRed;
+    } else if (selected.ineffectivenessList.contains(name)) {
+      return PokemonColors.arsenic;
+    }
+    return PokemonColors.transparent;
   }
 
   String get pokemonIconPath {

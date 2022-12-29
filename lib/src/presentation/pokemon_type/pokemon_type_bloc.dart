@@ -38,7 +38,7 @@ class PokemonTypeBloc with SubscriptionHolder {
     yield Loading();
     try {
       final result = await getPokemonTypeListUC.getFuture();
-      yield Success(viewModelList: result.toVM());
+      yield Success(viewModelList: result.toVM(result.first));
     } catch (error) {
       yield Error();
       errorSink.add(null);
