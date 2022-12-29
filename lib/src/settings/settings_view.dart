@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_scaffold.dart';
-
-import 'settings_controller.dart';
+import 'package:pokemon_weakness/src/settings/settings_controller.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
@@ -15,7 +15,7 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AdaptiveScaffold(
-      title: 'Settings',
+      title: AppLocalizations.of(context)?.settingsPageTitle,
       body: Padding(
         padding: const EdgeInsets.all(16),
         // Glue the SettingsController to the theme selection DropdownButton.
@@ -27,18 +27,27 @@ class SettingsView extends StatelessWidget {
           value: controller.themeMode,
           // Call the updateThemeMode method any time the user selects a theme.
           onChanged: controller.updateThemeMode,
-          items: const [
+          items: [
             DropdownMenuItem(
               value: ThemeMode.system,
-              child: Text('System Theme'),
+              child: Text(
+                AppLocalizations.of(context)?.settingsSystemThemeOptionTitle ??
+                    "",
+              ),
             ),
             DropdownMenuItem(
               value: ThemeMode.light,
-              child: Text('Light Theme'),
+              child: Text(
+                AppLocalizations.of(context)?.settingsLightThemeOptionTitle ??
+                    "",
+              ),
             ),
             DropdownMenuItem(
               value: ThemeMode.dark,
-              child: Text('Dark Theme'),
+              child: Text(
+                AppLocalizations.of(context)?.settingsDarkThemeOptionTitle ??
+                    "",
+              ),
             )
           ],
         ),

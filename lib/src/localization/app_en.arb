@@ -3,6 +3,26 @@
   "@appTitle": {
     "description": "The title of the application"
   },
+  "pokemonWeaknessPageTitle": "Pokemon weakness",
+  "@pokemonWeaknessPageTitle": {
+    "description": "Title of the pokemon weakness page"
+  },
+  "settingsPageTitle": "Settings",
+  "@settingsPageTitle": {
+    "description": "Title of the settings page"
+  },
+  "settingsSystemThemeOptionTitle": "System Theme",
+  "@settingsSystemThemeOptionTitle": {
+    "description": "Title of the system theme dropdown setting"
+   },
+  "settingsLightThemeOptionTitle": "Light Theme",
+  "@settingsLightThemeOptionTitle": {
+    "description": "Title of the light theme dropdown setting"
+  },
+  "settingsDarkThemeOptionTitle": "Dark Theme",
+  "@settingsDarkThemeOptionTitle": {
+    "description": "Title of the dark theme dropdown setting"
+  },
   "bugName": "Bug",
   "@bugName": {
     "description": "The name of the bug type"

@@ -1,5 +1,6 @@
 import 'package:domain/use_case/get_pokemon_type_list_uc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_app_bar_action.dart';
 import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_scaffold.dart';
 import 'package:pokemon_weakness/src/presentation/common/async_snapshot_response_view.dart';
@@ -37,7 +38,7 @@ class PokemonTypePage extends StatelessWidget {
     BuildContext context,
   ) =>
       AdaptiveScaffold(
-        title: "Pokemon weakness",
+        title: AppLocalizations.of(context)?.pokemonWeaknessPageTitle,
         action: AdaptiveAppBarAction(
           child: const Icon(Icons.settings),
           onPressed: () {
