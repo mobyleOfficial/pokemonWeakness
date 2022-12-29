@@ -11,36 +11,45 @@ class PokemonGridTile extends StatelessWidget {
   final PokemonTypeVM model;
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: model.color,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(16),
+  Widget build(BuildContext context) => Container(
+        decoration: BoxDecoration(
+          color: model.color,
+          border: Border.all(
+            color: Colors.transparent,
+            width: 4,
+          ),
+          borderRadius: const BorderRadius.all(
+            Radius.circular(16),
+          ),
         ),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: [
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              alignment: Alignment.center,
-              child: Image.asset(
-                model.iconPath,
-                errorBuilder: (_, __, ___) => Container(),
+        child: Column(
+          children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                alignment: Alignment.center,
+                child: Image.asset(
+                  model.iconPath,
+                  errorBuilder: (_, __, ___) => Container(),
+                ),
               ),
             ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            color: Theme.of(context).colorScheme.brightness == Brightness.light
-                ? PokemonColors.white.withAlpha(127)
-                : PokemonColors.black.withAlpha(127),
-            child: Text(model.id.name),
-          ),
-        ],
-      ),
-    );
-  }
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
+                ),
+                color:
+                    Theme.of(context).colorScheme.brightness == Brightness.light
+                        ? PokemonColors.white.withAlpha(127)
+                        : PokemonColors.black.withAlpha(127),
+              ),
+              child: Text(model.id.name),
+            ),
+          ],
+        ),
+      );
 }
