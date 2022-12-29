@@ -20,4 +20,5 @@ class PokemonColors {
   static const cadetBlue = Color(0xFF5695A3);
   static const carolinaBlue = Color(0xFF539DDF);
   static const white = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
 }
