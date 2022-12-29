@@ -7,17 +7,17 @@ import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_typ
 import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_type_vm.dart';
 
 extension PokemonTypeVMMapper on List<PokemonType> {
-  List<PokemonTypeVM> toVM(PokemonType selected) => map(
+  List<PokemonTypeVM> toVM({PokemonType? selected}) => map(
         (type) => type.toVM(selected),
       ).toList();
 }
 
 extension on PokemonType {
-  PokemonTypeVM toVM(PokemonType selected) => PokemonTypeVM(
+  PokemonTypeVM toVM(PokemonType? selected) => PokemonTypeVM(
         id: vmId,
         color: pokemonColor,
         borderColor: getPokemonBorderColor(selected),
-        opacity: name == selected.name
+        opacity: selected == null || name == selected.name
             ? PokemonOpacity.opaque
             : PokemonOpacity.translucent,
         iconPath: pokemonIconPath,
@@ -69,7 +69,10 @@ extension on PokemonType {
     }
   }
 
-  Color getPokemonBorderColor(PokemonType selected) {
+  Color getPokemonBorderColor(PokemonType? selected) {
+    if (selected == null) {
+      return PokemonColors.transparent;
+    }
     if (selected.weaknessList.contains(name)) {
       return PokemonColors.mayGreen;
     } else if (selected.resistanceList.contains(name)) {

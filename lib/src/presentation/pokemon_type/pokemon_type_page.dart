@@ -48,21 +48,28 @@ class PokemonTypePage extends StatelessWidget {
             );
           },
         ),
-        body: StreamBuilder<PokemonTypeState>(
-          stream: bloc.onNewState,
-          builder: (_, snapshot) =>
-              AsyncSnapshotResponseView<Success, Loading, Error>(
-            snapshot: snapshot,
-            successWidgetBuilder: (_, data) => GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 4,
-                mainAxisSpacing: 4,
-                crossAxisSpacing: 4,
-              ),
-              itemCount: data.viewModelList.length,
-              padding: const EdgeInsets.all(16),
-              itemBuilder: (context, index) => PokemonGridTile(
-                model: data.viewModelList[index],
+        body: GestureDetector(
+          onTap: () => bloc.onSelect.add(""),
+          child: StreamBuilder<PokemonTypeState>(
+            stream: bloc.onNewState,
+            builder: (_, snapshot) =>
+                AsyncSnapshotResponseView<Success, Loading, Error>(
+              snapshot: snapshot,
+              successWidgetBuilder: (_, data) => GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 4,
+                  crossAxisSpacing: 4,
+                ),
+                itemCount: data.viewModelList.length,
+                padding: const EdgeInsets.all(16),
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () =>
+                      bloc.onSelect.add(data.viewModelList[index].id.name),
+                  child: PokemonGridTile(
+                    model: data.viewModelList[index],
+                  ),
+                ),
               ),
             ),
           ),
