@@ -17,7 +17,7 @@ extension PokemonTypeStringMapper on String {
       case "electric":
         return PokemonTypeId.electric;
       case "fire":
-        return PokemonTypeId.fighting;
+        return PokemonTypeId.fire;
       case "fairy":
         return PokemonTypeId.fairy;
       case "fighting":
