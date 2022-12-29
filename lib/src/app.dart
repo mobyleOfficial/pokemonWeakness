@@ -4,10 +4,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokemon_weakness/src/presentation/common/adaptive/adaptive_app.dart';
 import 'package:pokemon_weakness/src/presentation/common/route_name_builder.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/pokemon_type_page.dart';
-import 'package:pokemon_weakness/src/sample_feature/sample_item_list_view.dart';
-
-import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
+import 'package:pokemon_weakness/src/settings/settings_controller.dart';
+import 'package:pokemon_weakness/src/settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
@@ -50,13 +48,13 @@ class MyApp extends StatelessWidget {
         // Define a function to handle named routes in order to support
         // Flutter web url navigation and deep linking.
         onGenerateRoute: (BuildContext context, RouteSettings settings) {
-          if (settings.name == SettingsView.routeName) {
+          if (settings.name == RouteNameBuilder.settingsScreen) {
             return SettingsView(controller: settingsController);
           }
           if (settings.name == RouteNameBuilder.pokemonTypeScreen) {
             return PokemonTypePage.create(context);
           }
-          return const SampleItemListView();
+          return PokemonTypePage.create(context);
         },
         settingsController: settingsController,
       );
