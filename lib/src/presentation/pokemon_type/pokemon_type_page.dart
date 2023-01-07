@@ -55,28 +55,51 @@ class PokemonTypePage extends StatelessWidget {
             builder: (_, snapshot) =>
                 AsyncSnapshotResponseView<Success, Loading, Error>(
               snapshot: snapshot,
-              successWidgetBuilder: (_, data) => GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4,
-                ),
-                itemCount: data.viewModelList.length,
-                padding: const EdgeInsets.all(16),
-                itemBuilder: (context, index) => GestureDetector(
-                  onTap: () => bloc.onSelect.add(
-                    data.viewModelList[index],
+              successWidgetBuilder: (_, data) {
+                const axisCount = 4;
+                final totalItems = data.viewModelList.length;
+                final mod = totalItems % axisCount;
+                final extraItems = axisCount - (mod > 0 ? mod : axisCount);
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: axisCount,
+                    mainAxisSpacing: 4,
+                    crossAxisSpacing: 4,
                   ),
-                  child: StreamBuilder(
-                      stream: bloc.onSelected,
-                      builder: (_, snapshot) {
-                        return PokemonGridTile(
-                          model: data.viewModelList[index],
-                          selected: snapshot.data,
-                        );
-                      }),
-                ),
-              ),
+                  itemCount: extraItems + totalItems,
+                  padding: const EdgeInsets.all(16),
+                  itemBuilder: (context, index) {
+                    if ((totalItems - index - extraItems - axisCount % 2) > 0) {
+                      final model = data.viewModelList[index];
+                      return GestureDetector(
+                        onTap: () => bloc.onSelect.add(model),
+                        child: StreamBuilder(
+                          stream: bloc.onSelected,
+                          builder: (_, snapshot) => PokemonGridTile(
+                            model: model,
+                            selected: snapshot.data,
+                          ),
+                        ),
+                      );
+                    } else if ((totalItems - index) >= 0 &&
+                        (totalItems - index) < axisCount / 2) {
+                      final model = data.viewModelList[index - 1];
+                      return GestureDetector(
+                        onTap: () => bloc.onSelect.add(model),
+                        child: StreamBuilder(
+                          stream: bloc.onSelected,
+                          builder: (_, snapshot) => PokemonGridTile(
+                            model: model,
+                            selected: snapshot.data,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return Container(color: Colors.transparent);
+                    }
+                  },
+                );
+              },
             ),
           ),
         ),
