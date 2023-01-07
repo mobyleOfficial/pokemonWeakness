@@ -17,6 +17,7 @@ dependencies:
   domain:
     path: ./domain
 
+  collection: ^1.16.0
   cupertino_icons: ^1.0.5
   json_annotation: ^4.7.0
   json_serializable: ^6.5.4
