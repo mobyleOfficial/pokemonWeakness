@@ -1,7 +1,7 @@
-import 'package:collection/collection.dart';
 import 'package:domain/use_case/get_pokemon_type_list_uc.dart';
 import 'package:pokemon_weakness/src/common/subscription_holder.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/domain_to_view_model.dart';
+import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_type_vm.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/pokemon_type_state.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -19,14 +19,6 @@ class PokemonTypeBloc with SubscriptionHolder {
         _onTryAgainSubject.stream
             .flatMap((_) => _fetchPokemonTypeList(_onErrorSubject))
             .listen(_onNewStateSubject.add),
-      )
-      ..add(
-        _onSelectSubject.stream.listen(
-          (selectedId) => _updatePokemonSelection(
-            _onErrorSubject,
-            selectedId,
-          ).listen(_onNewStateSubject.add),
-        ),
       );
   }
 
@@ -41,8 +33,9 @@ class PokemonTypeBloc with SubscriptionHolder {
   final _onErrorSubject = PublishSubject<void>();
   Stream<void> get onError => _onNewStateSubject.stream;
 
-  final _onSelectSubject = PublishSubject<String>();
-  Sink<String> get onSelect => _onSelectSubject.sink;
+  final _onSelectSubject = BehaviorSubject<PokemonTypeVM?>();
+  Sink<PokemonTypeVM?> get onSelect => _onSelectSubject.sink;
+  Stream<PokemonTypeVM?> get onSelected => _onSelectSubject.stream;
 
   Stream<PokemonTypeState> _fetchPokemonTypeList(
     Sink errorSink,
@@ -51,21 +44,6 @@ class PokemonTypeBloc with SubscriptionHolder {
     try {
       final result = await getPokemonTypeListUC.getFuture();
       yield Success(viewModelList: result.toVM());
-    } catch (error) {
-      yield Error();
-      errorSink.add(null);
-    }
-  }
-
-  Stream<PokemonTypeState> _updatePokemonSelection(
-    Sink errorSink,
-    String selectedId,
-  ) async* {
-    try {
-      final result = await getPokemonTypeListUC.getFuture();
-      final selected =
-          result.firstWhereOrNull((element) => element.name == selectedId);
-      yield Success(viewModelList: result.toVM(selected: selected));
     } catch (error) {
       yield Error();
       errorSink.add(null);

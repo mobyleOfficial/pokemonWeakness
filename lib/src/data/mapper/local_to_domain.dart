@@ -3,7 +3,7 @@ import 'package:pokemon_weakness/src/data/local/model/pokemon_type_lm.dart';
 
 extension on PokemonTypeLM {
   PokemonType toDomain() => PokemonType(
-        name: id,
+        id: id,
         weaknessList: weaknessList?.nameList ?? [],
         resistanceList: resistanceList?.nameList ?? [],
         ineffectivenessList: ineffectivenessList?.nameList ?? [],

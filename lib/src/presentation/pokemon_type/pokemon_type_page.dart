@@ -49,7 +49,7 @@ class PokemonTypePage extends StatelessWidget {
           },
         ),
         body: GestureDetector(
-          onTap: () => bloc.onSelect.add(""),
+          onTap: () => bloc.onSelect.add(null),
           child: StreamBuilder<PokemonTypeState>(
             stream: bloc.onNewState,
             builder: (_, snapshot) =>
@@ -64,11 +64,17 @@ class PokemonTypePage extends StatelessWidget {
                 itemCount: data.viewModelList.length,
                 padding: const EdgeInsets.all(16),
                 itemBuilder: (context, index) => GestureDetector(
-                  onTap: () =>
-                      bloc.onSelect.add(data.viewModelList[index].id.name),
-                  child: PokemonGridTile(
-                    model: data.viewModelList[index],
+                  onTap: () => bloc.onSelect.add(
+                    data.viewModelList[index],
                   ),
+                  child: StreamBuilder(
+                      stream: bloc.onSelected,
+                      builder: (_, snapshot) {
+                        return PokemonGridTile(
+                          model: data.viewModelList[index],
+                          selected: snapshot.data,
+                        );
+                      }),
                 ),
               ),
             ),

@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_weakness/src/presentation/common/pokemon_colors.dart';
+import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/vm_mapper.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/model/pokemon_type_vm.dart';
 
 class PokemonGridTile extends StatelessWidget {
   const PokemonGridTile({
     required this.model,
+    this.selected,
     Key? key,
   }) : super(key: key);
 
   final PokemonTypeVM model;
+  final PokemonTypeVM? selected;
 
   @override
   Widget build(BuildContext context) => Container(
         decoration: BoxDecoration(
-          color: model.color.withAlpha(model.opacity.value),
+          color: model.color.withAlpha(model.opacity(selected?.id).value),
           border: Border.all(
-            color: model.borderColor,
+            color: model.borderColor(selected),
             width: 4,
           ),
           borderRadius: const BorderRadius.all(
