@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
+import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/pokemon_vm_properties/pokemon_vm_properties.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/pokemon_vm_properties/properties/bug_vm_properties.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/pokemon_vm_properties/properties/dark_vm_properties.dart';
 import 'package:pokemon_weakness/src/presentation/pokemon_type/mapper/pokemon_vm_properties/properties/dragon_vm_properties.dart';
@@ -42,25 +43,16 @@ class PokemonVMPropertiesFactory {
     WaterVMProperties(),
   ];
 
-  static Color? getColor(
-    PokemonTypeId id,
-  ) =>
-      _propertiesList
-          .firstWhereOrNull((properties) => properties.id == id)
-          ?.color;
+  static Color? getColor(PokemonTypeId id) => _getProperties(id)?.color;
 
-  static String? getIconPath(
-    PokemonTypeId id,
-  ) =>
-      _propertiesList
-          .firstWhereOrNull((properties) => properties.id == id)
-          ?.iconPath;
+  static String? getIconPath(PokemonTypeId id) => _getProperties(id)?.iconPath;
 
   static String? getName(
     BuildContext context,
     PokemonTypeId id,
   ) =>
-      _propertiesList
-          .firstWhereOrNull((properties) => properties.id == id)
-          ?.name(context);
+      _getProperties(id)?.name(context);
+
+  static PokemonVMProperties? _getProperties(PokemonTypeId id) =>
+      _propertiesList.firstWhereOrNull((properties) => properties.id == id);
 }
